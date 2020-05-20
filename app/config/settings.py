@@ -27,6 +27,30 @@ SECRETS_FULL = json.load(open(os.path.join(ROOT_DIR, 'secrets.json')))
 SECRETS = SECRETS_FULL['base']
 SECRET_KEY = SECRETS['SECRET_KEY']
 
+# django-storages
+# Django의 FileStorage로 S3Boto3Storage(AWS의 S3)를 사용
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_SECRETS = SECRETS_FULL['AWS']
+
+AWS_ACCESS_KEY_ID = AWS_SECRETS['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = AWS_SECRETS['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = 'moonpeter-onlineshop'
+AWS_AUTO_CREATE_BUCKET = True
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME)
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age-86400', }
+AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'static'
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,6 +66,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -123,7 +149,3 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'

@@ -8,6 +8,8 @@ authors = ["moonpeter <moonpeter@kakao.com>"]
 python = "^3.7"
 django = ">3.0"
 psycopg2-binary = "^2.8.5"
+boto3 = "^1.13.13"
+django-storages = "^1.9.1"
 
 [tool.poetry.dev-dependencies]
 
