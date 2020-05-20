@@ -9,18 +9,23 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ROOT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k$hv&^ed2zqwk&eshvjv6uj757w1myi=_sn)(41$m8wc$#dfyj'
+
+# secret.json 불러오기
+SECRETS_FULL = json.load(open(os.path.join(ROOT_DIR, 'secrets.json')))
+SECRETS = SECRETS_FULL['base']
+SECRET_KEY = SECRETS['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
