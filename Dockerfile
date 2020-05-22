@@ -13,3 +13,8 @@ WORKDIR     /srv/onlineshop/app
 
 # Nginx설정파일을 복사
 RUN         cp /srv/onlineshop/.config/onlineshop.nginx /etc/nginx/sites-enabled/
+
+# 로그폴더 생성
+RUN         mkdir /var/log/gunicorn
+
+CMD         /bin/bash
