@@ -2,7 +2,7 @@ FROM        python:3.7-slim
 
 RUN         apt -y update && apt -y dist-upgrade
 
-# requirements를 /tmp에 복사 후, pip install실행
+# poetry export로 생성된 reuirements.txt를 적절히 복사
 COPY        ./requirements.txt /tmp/
 RUN         pip install -r /tmp/requirements.txt
 

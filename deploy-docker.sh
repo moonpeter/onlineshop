@@ -15,9 +15,8 @@ ${SSH_CMD} -C 'sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt dist-u
 echo "apt install docker.io"
 ${SSH_CMD} -C 'sudo apt -y install docker.io'
 
-# pip freeze
-echo "pip freeze"
-"$HOME"/.pyenv/versions/3.7.4/envs/onlineshop/bin/pip freeze > "${ORIGIN_SOURCE}"requirements.txt
+echo "poetry export"
+poetry export -f requirements.txt > requirements.txt
 
 # docker build
 echo "docker build"
