@@ -63,6 +63,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'shop',
+    'cart',
 
     'django.contrib.admin',
     'django.contrib.auth',
