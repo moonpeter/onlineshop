@@ -1,3 +1,5 @@
+import hashlib
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -18,10 +20,10 @@ class Order(models.Model):
     paid = models.BooleanField(default=False)
 
     coupon = models.ForeignKey(Coupon, on_delete=models.PROTECT, related_name='order_coupon', null=True, blank=True)
-    discount = models.IntegerField(default=0, validators=[MinValueValidator(0),-MaxValueValidator(100000)])
+    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), -MaxValueValidator(100000)])
 
     class Meta:
-        ordering = [-'created']
+        ordering = ['-created']
 
     def __str__(self):
         return 'Order {}'.format(self.id)
@@ -45,3 +47,42 @@ class OrderItem(models.Model):
 
     def get_item_price(self):
         return self.price * self.quantity
+
+
+from .iamport import payment_prepare, find_transaction
+
+
+class OrderTransactionManager(models.Manager):
+    def create_new(self, order, amount, success=None, transaction_status=None):
+        if not order:
+            raise ValueError("주문 오류")
+
+        order_hash = hashlib.sha1(str(order.id).encode('utf-8')).hexdigest()
+        email_hash = str(order.email).split("@")[0]
+        final_hash = hashlib.sha1((order_hash + email_hash).encode('utf-8')).hexdigest()[:10]
+        merchant_order_id = "%s" % (final_hash)
+        payment_prepare(merchant_order_id, amount)
+
+        transaction = self.model(
+            order=order,
+            merchant_order_id=merchant_order_id,
+            amount=amount
+        )
+
+        if success is not None:
+            transaction.success = success
+            transaction.transaction_status = transaction_status
+
+        try:
+            transaction.save()
+        except Exception as e:
+            print("save error", e)
+
+        return transaction.merchant_order_id
+
+    def get_transaction(self, merchant_order_id):
+        result = find_transaction(merchant_order_id)
+        if result['satus'] == 'paid':
+            return result
+        else:
+            return None
