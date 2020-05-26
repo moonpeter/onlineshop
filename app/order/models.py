@@ -1,11 +1,7 @@
-import hashlib
-
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
-# Create your models here.
 from coupon.models import Coupon
-from shop.models import Product
 
 
 class Order(models.Model):
@@ -20,7 +16,7 @@ class Order(models.Model):
     paid = models.BooleanField(default=False)
 
     coupon = models.ForeignKey(Coupon, on_delete=models.PROTECT, related_name='order_coupon', null=True, blank=True)
-    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), -MaxValueValidator(100000)])
+    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100000)])
 
     class Meta:
         ordering = ['-created']
@@ -36,6 +32,9 @@ class Order(models.Model):
         return total_product - self.discount
 
 
+from shop.models import Product
+
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='order_products')
@@ -49,6 +48,7 @@ class OrderItem(models.Model):
         return self.price * self.quantity
 
 
+import hashlib
 from .iamport import payment_prepare, find_transaction
 
 
@@ -61,28 +61,29 @@ class OrderTransactionManager(models.Manager):
         email_hash = str(order.email).split("@")[0]
         final_hash = hashlib.sha1((order_hash + email_hash).encode('utf-8')).hexdigest()[:10]
         merchant_order_id = "%s" % (final_hash)
+
         payment_prepare(merchant_order_id, amount)
 
-        transaction = self.model(
+        tranasction = self.model(
             order=order,
             merchant_order_id=merchant_order_id,
             amount=amount
         )
 
         if success is not None:
-            transaction.success = success
-            transaction.transaction_status = transaction_status
+            tranasction.success = success
+            tranasction.transaction_status = transaction_status
 
         try:
-            transaction.save()
+            tranasction.save()
         except Exception as e:
             print("save error", e)
 
-        return transaction.merchant_order_id
+        return tranasction.merchant_order_id
 
     def get_transaction(self, merchant_order_id):
         result = find_transaction(merchant_order_id)
-        if result['satus'] == 'paid':
+        if result['status'] == 'paid':
             return result
         else:
             return None
@@ -103,4 +104,25 @@ class OrderTransaction(models.Model):
         return str(self.order.id)
 
     class Meta:
-        ordering = ['created']
+        ordering = ['-created']
+
+
+def order_payment_validation(sender, instance, created, *args, **kwargs):
+    if instance.transaction_id:
+        import_transaction = OrderTransaction.objects.get_transaction(merchant_order_id=instance.merchant_order_id)
+
+        merchant_order_id = import_transaction['merchant_order_id']
+        imp_id = import_transaction['imp_id']
+        amount = import_transaction['amount']
+
+        local_transaction = OrderTransaction.objects.filter(merchant_order_id=merchant_order_id, transaction_id=imp_id,
+                                                            amount=amount).exists()
+
+        if not import_transaction or not local_transaction:
+            raise ValueError("비정상 거래입니다.")
+
+
+# 결제 정보가 생성된 후에 호출할 함수를 연결해준다.
+from django.db.models.signals import post_save
+
+post_save.connect(order_payment_validation, sender=OrderTransaction)
