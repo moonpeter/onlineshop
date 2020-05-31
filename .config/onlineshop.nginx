@@ -3,14 +3,40 @@ server {
     listen 80;
 
     # HTTP요청의 Host값(URL에 입력한 도메인)
-    server_name default_server;
+    server_name moonpeter.com;
 
     # 인코딩 UTF-8설정
     charset utf-8;
 
+    # Let's Encrypt
+    location /.well-known/acme-challenge/ {
+        alias           /srv/onlineshop/.cert/;
+    }
+
+    # .well-know외의 모든 요청을 https로 다시 요청하도록 redirect
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+server {
+    listen 443 ssl;
+    # HTTP요청의 Host값(URL에 입력한 도메인)
+    server_name moonpeter.com;
+
+    # 인코딩 UTF-8설정
+    charset utf-8;
+
+    #HTTPS 관련 설정
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/moonpeter.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/moonpeter.com/privkey.pem;
+
     # root로부터의 요청에 대해 응답할 Block
     # http://localhost
     location / {
+        #일반적으로 proxy로 요청을 넘겨 줄 경우 필요한 설정들
+        include         /etc/nginx/proxy_params;
+
         # /run/gunicorn.sock파일을 사용해서 Gunicorn과 소켓통신하는 Proxy구성
         proxy_pass      http://unix:/run/onlineshop.sock;
     }
