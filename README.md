@@ -1,5 +1,7 @@
 # onlineshop
 
+domain : moonpeter.com
+
 python = "^3.7"
 django = ">3.0"
 psycopg2-binary = "^2.8.5"
