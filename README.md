@@ -19,7 +19,30 @@ django-allauth = "^0.41.0"
 requests = "^2.23.0"
 ```
 
+### Installation
+
+- package management
+  - use poetry
+
+**`Poetry Install`**
+
+```
+# osx, linux
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+# windows
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python
+```
+
+**`package install`**
+
+- poetry install
+- pip install -r requirements.txt
+
+
+
 ### ERD
+
 URL : https://aquerytool.com:443/aquerymain/index/?rurl=b7ed4b73-55de-4d54-80df-6f0c33776011&
 
 - Password : 1gspm1
