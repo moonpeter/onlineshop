@@ -20,7 +20,8 @@ requests = "^2.23.0"
 ```
 
 ### ERD
-https://aquerytool.com/#/access_token=AAAAN7tJTA2i8V9jPHKbnYnHVyLbiJYjjMr20kh4GdwAqCXYip_lwNi54L7GkpMvXA7AmvTbEuaLfSaEv3emROZ5NXM&state=&token_type=bearer&expires_in=3600
+URL : https://aquerytool.com:443/aquerymain/index/?rurl=c3756102-7d2e-44db-b510-76b2eeaed237&
+Password : tpnq14
 
 ![image](https://user-images.githubusercontent.com/57426244/83347110-7ba63e80-a35d-11ea-9c2a-b05a5c7e00db.png)
 
