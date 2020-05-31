@@ -3,6 +3,9 @@ from django.db import models
 
 from coupon.models import Coupon
 
+# 결제 정보가 생성된 후에 호출할 함수를 연결해준다.
+from django.db.models.signals import post_save
+
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
@@ -121,8 +124,5 @@ def order_payment_validation(sender, instance, created, *args, **kwargs):
         if not import_transaction or not local_transaction:
             raise ValueError("비정상 거래입니다.")
 
-
-# 결제 정보가 생성된 후에 호출할 함수를 연결해준다.
-from django.db.models.signals import post_save
 
 post_save.connect(order_payment_validation, sender=OrderTransaction)

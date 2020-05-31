@@ -1,11 +1,8 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-# Create your views here.
-from django.views.generic.base import View
+from django.shortcuts import render, get_object_or_404
 
 from cart.cart import Cart
-from order.forms import OrderCreateForm
-from order.models import OrderItem, Order, OrderTransaction
+from .forms import *
+from .models import *
 
 
 def order_create(request):
@@ -29,10 +26,25 @@ def order_create(request):
     return render(request, 'order/create.html', {'cart': cart, 'form': form})
 
 
+from django.contrib.admin.views.decorators import staff_member_required
+
+
+@staff_member_required
+def admin_order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request, 'order/admin/detail.html', {'order': order})
+
+
+# ajax로 결제 후에 보여줄 결제 완료 화면
 def order_complete(request):
     order_id = request.GET.get('order_id')
     order = Order.objects.get(id=order_id)
     return render(request, 'order/created.html', {'order': order})
+
+
+# 결제를 위한 임포트
+from django.views.generic.base import View
+from django.http import JsonResponse
 
 
 class OrderCreateAjaxView(View):
@@ -57,11 +69,11 @@ class OrderCreateAjaxView(View):
                 "order_id": order.id
             }
             return JsonResponse(data)
-
         else:
             return JsonResponse({}, status=401)
 
 
+# 결제 정보 생성
 class OrderCheckoutAjaxView(View):
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -89,6 +101,7 @@ class OrderCheckoutAjaxView(View):
             return JsonResponse({}, status=401)
 
 
+# 실제 결제가 이뤄진 것이 있는지 확인
 class OrderImpAjaxView(View):
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
