@@ -1,6 +1,6 @@
 # onlineshop
 
-domain : moonpeter.com
+domain : https://moonpeter.com
 
 python = "^3.7"
 django = ">3.0"
