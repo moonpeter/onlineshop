@@ -25,7 +25,7 @@ requests = "^2.23.0"
 
 #### 1. Main Page
 
-![image](https://user-images.githubusercontent.com/57426244/83344861-632b2980-a347-11ea-908d-c7ed3422f68f.png)
+![image](https://user-images.githubusercontent.com/57426244/83345086-04b37a80-a34a-11ea-84fe-e0655169354a.png)
 
 #### 2. 
 
