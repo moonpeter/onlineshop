@@ -19,6 +19,9 @@ django-allauth = "^0.41.0"
 requests = "^2.23.0"
 ```
 
+### ERD
+![image](https://user-images.githubusercontent.com/57426244/83347055-0c304f00-a35d-11ea-9f68-1d283080fee1.png)
+
 
 
 
