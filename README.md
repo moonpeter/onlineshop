@@ -20,8 +20,9 @@ requests = "^2.23.0"
 ```
 
 ### ERD
-URL : https://aquerytool.com:443/aquerymain/index/?rurl=c3756102-7d2e-44db-b510-76b2eeaed237&
-Password : tpnq14
+URL : https://aquerytool.com:443/aquerymain/index/?rurl=b7ed4b73-55de-4d54-80df-6f0c33776011&
+
+- Password : 1gspm1
 
 ![image](https://user-images.githubusercontent.com/57426244/83347110-7ba63e80-a35d-11ea-9c2a-b05a5c7e00db.png)
 
