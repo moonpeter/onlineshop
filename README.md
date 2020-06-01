@@ -1,10 +1,12 @@
-# onlineshop
+# onlineshop(온라인 쇼핑몰 사이트)
 
 domain : https://moonpeter.com
 
+github : https://github.com/moonpeter/onlineshop
 
 
-### Package
+
+## Package
 
 ```
 python = "^3.7"
@@ -19,7 +21,9 @@ django-allauth = "^0.41.0"
 requests = "^2.23.0"
 ```
 
-### Installation
+
+
+## Installation
 
 - package management
   - use poetry
@@ -36,38 +40,54 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 **`package install`**
 
-- poetry install
-- pip install -r requirements.txt
+- $poetry install
+- $pip install -r requirements.txt
 
 
 
-### ERD
+## ERD
 
 URL : https://aquerytool.com:443/aquerymain/index/?rurl=b7ed4b73-55de-4d54-80df-6f0c33776011&
 
 - Password : 1gspm1
 
-![image](https://user-images.githubusercontent.com/57426244/83347110-7ba63e80-a35d-11ea-9c2a-b05a5c7e00db.png)
+![image](https://user-images.githubusercontent.com/57426244/83367549-0d5e8c00-a3f0-11ea-82e3-299af4c10eee.png)
 
 
 
+## 배포 과정
 
-#### 1. Main Page
+https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=sharing
 
-![image](https://user-images.githubusercontent.com/57426244/83345086-04b37a80-a34a-11ea-84fe-e0655169354a.png)
-
-#### 2. 
-
-
-
-![image](https://user-images.githubusercontent.com/57426244/83344880-b3a28700-a347-11ea-9f83-d40aca22ffeb.png)
+<img src="https://user-images.githubusercontent.com/57426244/83369043-eefb8f00-a3f5-11ea-985a-1247a19a7d83.png" alt="image" style="zoom:50%;" />
 
 
 
+## 1. 메인페이지
 
+<img src="https://user-images.githubusercontent.com/57426244/83345086-04b37a80-a34a-11ea-84fe-e0655169354a.png" alt="image" style="zoom:25%;" />
 
-![image](https://user-images.githubusercontent.com/57426244/83344881-ba30fe80-a347-11ea-9c0c-afab7148bb6f.png)
+## 2. 로그인 / 소셜로그인(네이버) / 로그아웃 페이지
 
-![image](https://user-images.githubusercontent.com/57426244/83344885-c9b04780-a347-11ea-8918-b71c0ea7b92b.png)
+<img src="https://user-images.githubusercontent.com/57426244/83347275-0cc9e500-a35f-11ea-9672-8e931326ac65.png" alt="image" style="zoom:25%;" />
 
-![image](https://user-images.githubusercontent.com/57426244/83344887-d16fec00-a347-11ea-9d66-3975322d98e1.png)
+<img src="https://user-images.githubusercontent.com/57426244/83347303-3f73dd80-a35f-11ea-81d2-b207a6badfb4.png" alt="image" style="zoom:25%;" />
+
+<img src="https://user-images.githubusercontent.com/57426244/83347343-5fa39c80-a35f-11ea-88e0-2c29f619ad43.png" alt="image" style="zoom:25%;" />
+
+## 3. 상품의 상세페이지
+
+<img src="https://user-images.githubusercontent.com/57426244/83344880-b3a28700-a347-11ea-9f83-d40aca22ffeb.png" alt="image" style="zoom:25%;" />
+
+## 4. 카트 상세페이지
+
+<img src="https://user-images.githubusercontent.com/57426244/83344881-ba30fe80-a347-11ea-9c0c-afab7148bb6f.png" alt="image" style="zoom:25%;" />
+
+## 5. 주문 페이지
+
+<img src="https://user-images.githubusercontent.com/57426244/83344885-c9b04780-a347-11ea-8918-b71c0ea7b92b.png" alt="image" style="zoom:25%;" />
+
+## 6. 결제 페이지
+
+<img src="https://user-images.githubusercontent.com/57426244/83344887-d16fec00-a347-11ea-9d66-3975322d98e1.png" alt="image" style="zoom:25%;" />
+
