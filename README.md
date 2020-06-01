@@ -59,7 +59,7 @@ URL : https://aquerytool.com:443/aquerymain/index/?rurl=b7ed4b73-55de-4d54-80df-
 
 https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=sharing
 
-<img src="https://user-images.githubusercontent.com/57426244/83369043-eefb8f00-a3f5-11ea-985a-1247a19a7d83.png" alt="image" style="zoom:50%;" />
+![image](https://user-images.githubusercontent.com/57426244/83371560-af38a580-a3fd-11ea-9040-c60ec1b4eae4.png)
 
 
 
