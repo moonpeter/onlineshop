@@ -63,6 +63,14 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 
 
 
+
+
+
+
+
+
+
+
 ## 1. 메인페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83345086-04b37a80-a34a-11ea-84fe-e0655169354a.png" alt="image" style="zoom:25%;" />
@@ -82,6 +90,8 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 ## 4. 카트 상세페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83344881-ba30fe80-a347-11ea-9c0c-afab7148bb6f.png" alt="image" style="zoom:25%;" />
+
+
 
 ## 5. 주문 페이지
 
