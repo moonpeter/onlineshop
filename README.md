@@ -1,7 +1,5 @@
 ![CI](https://github.com/moonpeter/onlineshop/workflows/CI/badge.svg) [![codecov](https://codecov.io/gh/moonpeter/onlineshop/branch/master/graph/badge.svg)](https://codecov.io/gh/moonpeter/onlineshop)
 
-
-
 # onlineshop(온라인 쇼핑몰 사이트)
 
 domain : https://moonpeter.com
@@ -13,20 +11,13 @@ github : https://github.com/moonpeter/onlineshop
 ## Package
 
 ```
-python = "^3.7"
-django = ">3.0"
-psycopg2-binary = "^2.8.5"
-boto3 = "^1.13.13"
-django-storages = "^1.9.1"
-gunicorn = "^20.0.4"
-supervisor = "^4.2.0"
-pillow = "^7.1.2"
-django-allauth = "^0.41.0"
-requests = "^2.23.0"
-coverage = "^5.1"
-pytest = "^5.4.3"
-pytest-django = "^3.9.0"
-codecov = "^2.1.3"
+python = "^3.7"																pillow = "^7.1.2"
+django = ">3.0"																django-allauth = "^0.41.0"
+psycopg2-binary = "^2.8.5"										requests = "^2.23.0"
+boto3 = "^1.13.13"														coverage = "^5.1"
+django-storages = "^1.9.1"										pytest = "^5.4.3"
+gunicorn = "^20.0.4"													pytest-django = "^3.9.0"
+supervisor = "^4.2.0"													codecov = "^2.1.3"
 pytest-cov = "^2.9.0"
 ```
 
@@ -54,6 +45,12 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 
 
+
+
+
+
+
+
 ## ERD
 
 URL : https://aquerytool.com:443/aquerymain/index/?rurl=b7ed4b73-55de-4d54-80df-6f0c33776011&
@@ -74,23 +71,15 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 
 
 
-
-
-
-
-
-
 ## 1. 메인페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83587847-fe601100-a58a-11ea-9ffe-13d702a5ae67.png" alt="image" style="zoom:25%;" />
-
-
 
 ## 2. 로그인 / 소셜로그인(네이버) / 로그아웃 페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83347275-0cc9e500-a35f-11ea-9672-8e931326ac65.png" alt="image" style="zoom:25%;" />
 
-<img src="https://user-images.githubusercontent.com/57426244/83347303-3f73dd80-a35f-11ea-81d2-b207a6badfb4.png" alt="image" style="zoom:25%;" />
+<img src="https://user-images.githubusercontent.com/57426244/83347303-3f73dd80-a35f-11ea-81d2-b207a6badfb4.png" alt="image" style="zoom:20%;" />
 
 <img src="https://user-images.githubusercontent.com/57426244/83347343-5fa39c80-a35f-11ea-88e0-2c29f619ad43.png" alt="image" style="zoom:25%;" />
 
@@ -101,6 +90,16 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 ## 4. 카트 상세페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83344881-ba30fe80-a347-11ea-9c0c-afab7148bb6f.png" alt="image" style="zoom:25%;" />
+
+
+
+
+
+
+
+
+
+
 
 
 
