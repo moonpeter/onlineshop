@@ -23,6 +23,11 @@ supervisor = "^4.2.0"
 pillow = "^7.1.2"
 django-allauth = "^0.41.0"
 requests = "^2.23.0"
+coverage = "^5.1"
+pytest = "^5.4.3"
+pytest-django = "^3.9.0"
+codecov = "^2.1.3"
+pytest-cov = "^2.9.0"
 ```
 
 
