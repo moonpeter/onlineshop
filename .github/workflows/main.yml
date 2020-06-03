@@ -37,4 +37,3 @@ jobs:
     
     - name: codecov
       run: ~/.poetry/bin/poetry run codecov
-      
