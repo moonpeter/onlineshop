@@ -73,7 +73,9 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 
 ## 1. 메인페이지
 
-<img src="https://user-images.githubusercontent.com/57426244/83345086-04b37a80-a34a-11ea-84fe-e0655169354a.png" alt="image" style="zoom:25%;" />
+<img src="https://user-images.githubusercontent.com/57426244/83587847-fe601100-a58a-11ea-9ffe-13d702a5ae67.png" alt="image" style="zoom:25%;" />
+
+
 
 ## 2. 로그인 / 소셜로그인(네이버) / 로그아웃 페이지
 
@@ -100,4 +102,3 @@ https://drive.google.com/file/d/122sqhHRFdhF9RFZ3UwjpAUwLQpM4L46h/view?usp=shari
 ## 6. 결제 페이지
 
 <img src="https://user-images.githubusercontent.com/57426244/83344887-d16fec00-a347-11ea-9d66-3975322d98e1.png" alt="image" style="zoom:25%;" />
-
