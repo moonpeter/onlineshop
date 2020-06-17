@@ -1,4 +1,5 @@
 ![CI](https://github.com/moonpeter/onlineshop/workflows/CI/badge.svg) [![codecov](https://codecov.io/gh/moonpeter/onlineshop/branch/master/graph/badge.svg)](https://codecov.io/gh/moonpeter/onlineshop)
+![CI](https://github.com/moonpeter/onlineshop/workflows/CI/badge.svg)
 
 # onlineshop(온라인 쇼핑몰 사이트)
 
