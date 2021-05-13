@@ -3,8 +3,6 @@
 
 # onlineshop(온라인 쇼핑몰 사이트)
 
-domain : https://moonpeter.com
-
 github : https://github.com/moonpeter/onlineshop
 
 
